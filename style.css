@@ -8,7 +8,7 @@ body {
 }
 .container {
   background-color: #ffffff;
-  width: 100vmin;
+  width: 60vw;
   padding: 50px 30px;
   position: absolute;
   transform: translate(-50%, -50%);
@@ -33,14 +33,23 @@ button {
   background-color: #ffffff;
   outline: none;
   color: #020929;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+button:hover {
+  background-color: #e0e9ff;
 }
 select {
   padding: 7px;
   border: 1px solid #020929;
   border-radius: 3px;
 }
+.adv-option-button option {
+  cursor: pointer !important;
+}
 .options label,
 .options select {
+  cursor: pointer;
   font-family: "Poppins", sans-serif;
 }
 .input-wrapper {
@@ -70,7 +79,7 @@ input[type="color"]::-moz-color-swatch {
   margin-top: 10px;
   border: 1px solid #dddddd;
   padding: 20px;
-  height: 20vh;
+  height: 30vh;
   overflow-y: auto;
 }
 .active {

@@ -30,23 +30,23 @@ const initializer = () => {
   highlighter(scriptButtons, true);
 
   //create options for font names
-  fontList.map((value) => {
-    let option = document.createElement("option");
-    option.value = value;
-    option.innerHTML = value;
-    fontName.appendChild(option);
-  });
+  // fontList.map((value) => {
+  //   let option = document.createElement("option");
+  //   option.value = value;
+  //   option.innerHTML = value;
+  //   fontName.appendChild(option);
+  // });
 
   //fontSize allows only till 7
-  for (let i = 1; i <= 7; i++) {
-    let option = document.createElement("option");
-    option.value = i;
-    option.innerHTML = i;
-    fontSizeRef.appendChild(option);
-  }
+  // for (let i = 1; i <= 7; i++) {
+  //   let option = document.createElement("option");
+  //   option.value = i;
+  //   option.innerHTML = i;
+  //   fontSizeRef.appendChild(option);
+  // }
 
   //default size
-  fontSizeRef.value = 3;
+  // fontSizeRef.value = 3;
 };
 
 //main logic
@@ -114,4 +114,32 @@ const highlighterRemover = (className) => {
   });
 };
 
-window.onload = initializer();
+// Call initializer function when the window loads
+initializer();
+
+// Code view button reference
+let codeViewButton = document.getElementById("codeView");
+if (!codeViewButton) {
+  console.error("Code view button not found.");
+} else {
+  // Flag to track code view mode
+  let isCodeView = false;
+
+  // Event listener for code view button
+  codeViewButton.addEventListener("click", () => {
+    toggleCodeView();
+  });
+
+  function toggleCodeView() {
+    isCodeView = !isCodeView;
+    if (isCodeView) {
+      // Switch to code view mode
+      writingArea.textContent = writingArea.innerHTML; // Set the content to HTML
+      writingArea.setAttribute("contenteditable", "true"); // Disable editing
+    } else {
+      // Switch back to regular mode
+      writingArea.innerHTML = writingArea.textContent; // Set the content back from HTML
+      writingArea.setAttribute("contenteditable", "true"); // Enable editing
+    }
+  }
+}
